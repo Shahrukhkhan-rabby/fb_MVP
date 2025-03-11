@@ -12,5 +12,15 @@ connectDB();
 // Routes
 app.use("/api/auth", require("./routes/authRoutes"));
 
+app.get("/", (req, res) => {
+  res.send("API is running...");
+});
+
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ msg: "Server error" });
+});
+
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

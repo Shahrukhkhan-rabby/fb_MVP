@@ -19,5 +19,4 @@ Thumbs.db
 # Temporary or build files
 /dist/
 
-# Ignore README.js
-backend/README.js
+
