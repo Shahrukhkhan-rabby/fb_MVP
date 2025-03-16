@@ -22,6 +22,7 @@ exports.register = async (req, res) => {
 
     res.json({ token, user: { id: user._id, name, email } });
   } catch (error) {
+    console.error(error); // Log the error
     res.status(500).json({ msg: "Server error" });
   }
 };
@@ -41,8 +42,12 @@ exports.login = async (req, res) => {
       expiresIn: "1d",
     });
 
-    res.json({ token, user: { id: user._id, name, email } });
+    res.json({
+      token,
+      user: { id: user._id, name: user.name, email: user.email },
+    });
   } catch (error) {
+    console.error(error); // Log the error
     res.status(500).json({ msg: "Server error" });
   }
 };
@@ -75,6 +80,7 @@ exports.forgotPassword = async (req, res) => {
     await transporter.sendMail(mailOptions);
     res.json({ msg: "Password reset link sent to email" });
   } catch (error) {
+    console.error(error); // Log the error
     res.status(500).json({ msg: "Server error" });
   }
 };
@@ -99,6 +105,7 @@ exports.resetPassword = async (req, res) => {
 
     res.json({ msg: "Password reset successful" });
   } catch (error) {
+    console.error(error); // Log the error
     res.status(500).json({ msg: "Server error" });
   }
 };
