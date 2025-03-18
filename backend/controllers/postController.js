@@ -70,10 +70,11 @@ exports.getAllPosts = async (req, res) => {
   try {
     const posts = await Post.find()
       .populate("user", "name profilePic")
-      .populate("comments.user", "name");
+      .populate("comments.user", "name profilePic")
+      .sort({ createdAt: -1 }); // Sort by latest post
 
     res.json(posts);
   } catch (error) {
-    res.status(500).json({ msg: "Server error" });
+    res.status(500).json({ msg: "Server error", error });
   }
 };
