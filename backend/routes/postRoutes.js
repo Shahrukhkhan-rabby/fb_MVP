@@ -1,12 +1,18 @@
 const express = require("express");
-const router = express.Router();
+const {
+  createPost,
+  likePost,
+  commentPost,
+  getAllPosts,
+} = require("../controllers/postController");
 const authMiddleware = require("../middleware/authMiddleware");
-const { createPost, getPosts } = require("../controllers/postController");
+const upload = require("../middleware/multer"); // Multer for handling file uploads
 
-// Protected route: Only logged-in users can create a post
-router.post("/", authMiddleware, createPost);
+const router = express.Router();
 
-// Public route: Get all posts
-router.get("/", getPosts);
+router.post("/", authMiddleware, upload.single("image"), createPost); // Create Post
+router.put("/:id/like", authMiddleware, likePost); // Like/Unlike Post
+router.post("/:id/comment", authMiddleware, commentPost); // Comment on Post
+router.get("/", getAllPosts); // Get All Posts
 
 module.exports = router;
