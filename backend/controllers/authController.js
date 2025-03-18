@@ -20,12 +20,19 @@ exports.register = async (req, res) => {
       expiresIn: "1d",
     });
 
+    // Send a token vie email
+    // When user click on that email it will take to a page
+    // From that page you need to validate the token
+    // Create another route to validate that token
+
     res.json({ token, user: { id: user._id, name, email } });
   } catch (error) {
     console.error(error); // Log the error
     res.status(500).json({ msg: "Server error" });
   }
 };
+
+// Validate email
 
 // Login User
 exports.login = async (req, res) => {

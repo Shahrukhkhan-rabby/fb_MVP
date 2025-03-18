@@ -10,9 +10,9 @@ const upload = require("../middleware/multer"); // Multer for handling file uplo
 
 const router = express.Router();
 
-router.post("/", authMiddleware, upload.single("image"), createPost); // Create Post
+router.get("/list", getAllPosts); // Get All Posts
+router.post("/create", authMiddleware, upload.single("image"), createPost); // Create Post
 router.put("/:id/like", authMiddleware, likePost); // Like/Unlike Post
 router.post("/:id/comment", authMiddleware, commentPost); // Comment on Post
-router.get("/", getAllPosts); // Get All Posts
 
 module.exports = router;
