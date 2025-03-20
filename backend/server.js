@@ -17,6 +17,8 @@ connectDB();
 app.use("/api/auth", require("./routes/authRoutes")); // Authentication routes
 app.use("/api/upload", require("./routes/uploadRoute")); // File upload route
 app.use("/api/post", require("./routes/postRoutes")); // File upload route
+app.use("/api/users", require("./routes/userRoutes")); // Add User Routes
+
 
 // Test route
 app.get("/", (req, res) => {

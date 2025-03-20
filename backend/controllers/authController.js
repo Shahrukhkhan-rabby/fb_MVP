@@ -26,8 +26,7 @@ exports.register = async (req, res) => {
     // Create another route to validate that token
 
     res.json({ token, user: { id: user._id, name, email } });
-  } catch (error) {
-    console.error(error); // Log the error
+  } catch (error) { console.error(error); // Log the error
     res.status(500).json({ msg: "Server error" });
   }
 };
