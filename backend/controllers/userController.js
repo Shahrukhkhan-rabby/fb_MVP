@@ -1,5 +1,6 @@
 const cloudinary = require("cloudinary").v2;
 const User = require("../models/User");
+const upload = require("../middleware/multer");
 
 exports.updateProfilePic = async (req, res) => {
   try {

@@ -19,6 +19,8 @@ app.use("/api/upload", require("./routes/uploadRoute")); // File upload route
 app.use("/api/post", require("./routes/postRoutes")); // File upload route
 app.use("/api/users", require("./routes/userRoutes")); // Add User Routes
 
+// Static uploads folder
+app.use("/uploads", express.static("uploads"));
 
 // Test route
 app.get("/", (req, res) => {

@@ -10,9 +10,16 @@ const upload = require("../middleware/multer"); // Multer for handling file uplo
 
 const router = express.Router();
 
-router.get("/list", getAllPosts); // Get All Posts
-router.post("/create", authMiddleware, upload.single("image"), createPost); // Create Post
-router.put("/:id/like", authMiddleware, likePost); // Like/Unlike Post
-router.post("/:id/comment", authMiddleware, commentPost); // Comment on Post
+// Get All Posts (Home Page)
+router.get("/", getAllPosts); // Fetch posts with likes & comments
+
+// Create a New Post (With Image Upload)
+router.post("/create", authMiddleware, upload.single("image"), createPost);
+
+// Like/Unlike a Post
+router.put("/:id/like", authMiddleware, likePost);
+
+// Comment on a Post
+router.post("/:id/comment", authMiddleware, commentPost);
 
 module.exports = router;

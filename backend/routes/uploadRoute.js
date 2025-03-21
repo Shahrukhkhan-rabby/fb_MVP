@@ -1,24 +1,21 @@
 const express = require("express");
-const multer = require("multer");
 const cloudinary = require("../config/cloudinary"); // Import Cloudinary configuration
 const userController = require("../controllers/userController");
 const authMiddleware = require("../middleware/authMiddleware");
+const upload = require("../middleware/multer");
 
 const router = express.Router();
-
-// Multer configuration for file upload (temporary storage in 'uploads' folder)
-const upload = multer({ dest: "uploads/" });
 
 // Route for updating profile picture with authentication
 router.put(
   "/profilePic", // This route will handle updating the profile picture
   authMiddleware, // Middleware to verify JWT token and authenticate the user
-  upload.single("file"), // Multer middleware for handling file uploads
+  upload.single("profilePic"), // Multer middleware for handling file uploads
   userController.updateProfilePic // Controller that handles the profile picture update
 );
 
 // Test route for uploading files to Cloudinary (optional)
-router.post("/upload", upload.single("file"), async (req, res) => {
+router.post("/upload", upload.single("profilePic"), async (req, res) => {
   try {
     if (!req.file) {
       return res.status(400).json({ msg: "No file uploaded" });

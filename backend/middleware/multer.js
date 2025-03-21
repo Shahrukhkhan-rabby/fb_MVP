@@ -6,13 +6,22 @@ const storage = multer.diskStorage({
     cb(null, "uploads/"); // Temporary storage before Cloudinary upload
   },
   filename: (req, file, cb) => {
-    cb(
-      null,
-      file.fieldname + "-" + Date.now() + path.extname(file.originalname)
-    );
+    cb(null, file.fieldname + "-" + Date.now() + path.extname(file.originalname));
   },
 });
 
-const upload = multer({ storage });
+// File filter to ensure only images are uploaded
+const fileFilter = (req, file, cb) => {
+  if (!file.mimetype.startsWith("image/")) {
+    return cb(new Error("Only image files are allowed"), false);
+  }
+  cb(null, true);
+};
+
+const upload = multer({
+  storage,
+  fileFilter,
+  limits: { fileSize: 2 * 1024 * 1024 }, // 2MB limit
+});
 
 module.exports = upload;
