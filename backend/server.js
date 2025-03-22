@@ -7,7 +7,7 @@ require("dotenv").config();
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors({ origin: "*" }));
 app.use(express.json()); // Middleware for handling JSON requests
 
 // Connect to the database
