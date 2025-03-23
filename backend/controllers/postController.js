@@ -9,19 +9,21 @@ exports.createPost = async (req, res) => {
     // If there's an image, upload it to Cloudinary
     if (req.file) {
       const result = await cloudinary.uploader.upload(req.file.path);
-      imageUrl = result.secure_url;
+      imageUrl = result.secure_url;  // Save the Cloudinary URL
     }
 
+    // Create new post with the image URL
     const newPost = new Post({
-      user: req.user.id,
-      text: req.body.text,
-      image: imageUrl, // Save image URL if uploaded
+      user: req.user.id,  // Assuming user ID is stored in req.user
+      text: req.body.text,  // Text content of the post
+      image: imageUrl,  // Image URL if uploaded
     });
 
-    const post = await newPost.save();
-    res.status(201).json(post);
+    const post = await newPost.save();  // Save the post in the database
+    res.status(201).json(post);  // Respond with the newly created post
   } catch (error) {
-    res.status(500).json({ msg: "Server error" });
+    console.error("Error creating post:", error);  // Log detailed error
+    res.status(500).json({ msg: "Server error", error: error.message });  // Send error response
   }
 };
 
