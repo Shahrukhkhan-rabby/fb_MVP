@@ -1,3 +1,4 @@
+document.addEventListener("DOMContentLoaded", function() {
 // Login
 const loginForm = document.getElementById('loginForm');
 loginForm.addEventListener('submit', async (e) => {
@@ -8,14 +9,20 @@ loginForm.addEventListener('submit', async (e) => {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password })
-    });
-    const data = await res.json();
-    if (res.ok) {
-        localStorage.setItem('token', data.token);
-        window.location.href = 'home.html';
-    } else {
-        alert(data.msg);
-    }
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log("Login Response", data)
+
+        if(data.token){
+            localStorage.setItem("authtoken", data.token)
+            console.log("Token Stored", data.token)
+            alert("Login successful!")
+            window.location.href="profile.html";
+        } else {
+            alert("Login failed! Check credentials.")
+        }
+    })
 });
 
 // Register
@@ -37,4 +44,4 @@ registerForm.addEventListener('submit', async (e) => {
     } else {
         alert(data.msg);
     }
-});
+})})

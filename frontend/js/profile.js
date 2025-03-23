@@ -23,20 +23,27 @@ const handleProfilePicChange = (event) => {
 const uploadProfilePic = async (file) => {
   const formData = new FormData();
   formData.append("file", file);
-  formData.append("upload_preset", "your_cloudinary_upload_preset"); // Replace with your Cloudinary upload preset
+  formData.append("upload_preset", "facebookMVP"); // Replace with your Cloudinary upload preset
 
   try {
-    const response = await fetch("https://api.cloudinary.com/v1_1/your_cloud_name/image/upload", {
+    const response = await fetch("https://api.cloudinary.com/v1_1/dshbrth4o/image/upload", {
       method: "POST",
       body: formData,
     });
 
     const data = await response.json();
+    console.log("Cloudinary response:", data);
+    if (data.secure_url) {
     return data.secure_url; // Return the Cloudinary URL of the uploaded image
+  } else {
+    throw new Error("Failed to upload image to Cloudinary" + JSON.stringify(data));
+  }
   } catch (error) {
     console.error("Error uploading to Cloudinary:", error);
+    alert("Failed to upload image to Cloudinary. Please try again.")
     return null;
   }
+
 };
 
 // Function to update the user's profile picture on the backend
