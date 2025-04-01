@@ -1,0 +1,85 @@
+/* Import Facebook-like font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: #f0f2f5;
+}
+
+/* Account Dropdown Menu */
+.account-menu {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    background: white;
+    width: 250px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.account-header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.account-header img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.account-header h4 {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.account-header p {
+    color: gray;
+    font-size: 12px;
+}
+
+.account-menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.account-menu ul li {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.account-menu ul li:hover {
+    background: #f0f2f5;
+}
+
+.account-menu ul li i {
+    font-size: 18px;
+    margin-right: 10px;
+    color: #65676b;
+}
+
+.account-menu ul li a {
+    text-decoration: none;
+    color: #000;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background: #ddd;
+    margin: 10px 0;
+}

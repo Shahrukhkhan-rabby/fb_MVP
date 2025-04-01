@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account - Facebook</title>
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="account.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <!-- Universal Navbar -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="home.html" class="logo">
+                <img src="assets/images/facebook_logo.png" alt="Facebook">
+            </a>
+            <div class="search-box">
+                <input type="text" placeholder="Search Facebook">
+                <i class="fas fa-search"></i>
+            </div>
+        </div>
+
+        <div class="nav-center">
+            <a href="home.html" class="nav-icon"><i class="fas fa-home"></i></a>
+            <a href="#" class="nav-icon"><i class="fas fa-video"></i></a>
+            <a href="#" class="nav-icon"><i class="fas fa-store"></i></a>
+            <a href="#" class="nav-icon"><i class="fas fa-users"></i></a>
+            <a href="#" class="nav-icon"><i class="fas fa-gamepad"></i></a>
+        </div>
+
+        <div class="nav-right">
+            <a href="#" class="nav-icon"><i class="fas fa-bars"></i></a>
+            <a href="#" class="nav-icon"><i class="fab fa-facebook-messenger"></i></a>
+            <a href="#" class="nav-icon"><i class="fas fa-bell"></i></a>
+            <a href="#" class="nav-icon account-toggle"><i class="fas fa-user-circle"></i></a>
+        </div>
+    </nav>
+
+    <!-- Account Dropdown Menu -->
+    <div class="account-menu">
+        <div class="account-header">
+            <img src="assets/images/profile.jpg" alt="Profile">
+            <div>
+                <h4>Shahrukh Khan</h4>
+                <p>See your profile</p>
+            </div>
+        </div>
+        <hr>
+        <ul>
+            <li><i class="fas fa-user"></i> <a href="profile.html">Profile</a></li>
+            <li><i class="fas fa-cog"></i> <a href="#">Settings & Privacy</a></li>
+            <li><i class="fas fa-question-circle"></i> <a href="#">Help & Support</a></li>
+            <li><i class="fas fa-moon"></i> <a href="#">Dark Mode</a></li>
+            <li><i class="fas fa-sign-out-alt"></i> <a href="login.html">Log Out</a></li>
+        </ul>
+    </div>
+
+    <script src="account.js"></script>
+    <script src="navbar.js"></script>
+
+</body>
+</html>
