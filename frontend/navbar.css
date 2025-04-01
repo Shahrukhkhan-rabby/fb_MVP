@@ -1,98 +1,82 @@
-/* Reset styles */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
-/* Navbar styling */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #fff;
+    background-color: #ffffff;
     padding: 10px 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     position: fixed;
     width: 100%;
     top: 0;
-    z-index: 100;
+    z-index: 1000;
 }
 
-/* Left section */
+/* Left Section */
 .nav-left {
     display: flex;
+    flex: 33.33;
     align-items: center;
 }
 
-.logo {
-    font-size: 30px;
-    color: #1877f2;
-    text-decoration: none;
-    margin-right: 15px;
+.nav-left .logo img {
+    width: 40px;
 }
 
 .search-box {
+    background: #f0f2f5;
+    padding: 5px;
     display: flex;
     align-items: center;
-    background: #f0f2f5;
-    padding: 5px 10px;
-    border-radius: 50px;
-}
-
-.search-box i {
-    color: gray;
-    margin-right: 5px;
+    border-radius: 20px;
+    margin-left: 10px;
 }
 
 .search-box input {
     border: none;
-    background: transparent;
+    background: none;
     outline: none;
     padding: 5px;
 }
 
-/* Center section */
+.search-box i {
+    color: #65676b;
+    margin-left: 5px;
+}
+
+/* Center Section */
 .nav-center {
     display: flex;
-    gap: 40px;
+    flex: 33.33;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.nav-center a {
-    font-size: 22px;
-    color: gray;
+.nav-icon {
     text-decoration: none;
+    color: #65676b;
+    font-size: 20px;
     padding: 10px 15px;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
-.nav-center a.active,
-.nav-center a:hover {
-    background: #f0f2f5;
-    color: #1877f2;
+.nav-icon:hover,
+.nav-icon.active {
+    /* background-color: #f0f2f5; */
 }
 
-/* Right section */
+/* Right Section */
 .nav-right {
     display: flex;
+    flex: 33.33;
     align-items: center;
-    gap: 15px;
-}
-
-.nav-right a {
-    font-size: 20px;
-    color: gray;
-    text-decoration: none;
-    padding: 10px;
-    border-radius: 50%;
-}
-
-.nav-right a:hover {
-    background: #f0f2f5;
-}
-
-.profile {
-    font-size: 25px;
-    color: #1877f2;
+    justify-content: end;
 }

@@ -1,0 +1,32 @@
+/* Import Facebook-like font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Body Background */
+body {
+    background-color: #f0f2f5;
+}
+
+/* Center Content */
+h1 {
+    text-align: center;
+    color: #1877f2;
+    margin-top: 20px;
+}
+
+/* Post List Container */
+#postList {
+    width: 60%;
+    max-width: 600px;
+    background: white;
+    margin: 20px auto;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}
