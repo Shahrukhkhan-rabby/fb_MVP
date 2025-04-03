@@ -4,28 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Post</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="post.css">
 </head>
 <body>
 
-    <!-- Create Post Section -->
-    <div id="createPostContainer">
-        <h1>Create New Post</h1>
-        <form id="postForm" enctype="multipart/form-data">
-            <textarea id="content" placeholder="Write something..." required></textarea><br>
-            <label for="image">Post Image (optional):</label>
-            <input type="file" id="image"><br>
-            <button type="submit">Post</button>
-        </form>
+    <!-- Wrapper to Center Everything -->
+    <div id="contentWrapper">
+        
+        <!-- Create Post Section -->
+        <div id="createPostContainer">
+            <h1>Create New Post</h1>
+            <form id="postForm" enctype="multipart/form-data">
+                <textarea id="content" placeholder="Write something..." required></textarea><br>
+                <label for="image">Post Image (optional):</label>
+                <input type="file" id="image"><br>
+                <button type="submit">Post</button>
+            </form>
+        </div>
+
+        <!-- Posts Section -->
+        <div id="posts-container">
+            <h2>All Posts</h2>
+            <div id="postList"></div>
+        </div>
+
     </div>
 
-    <!-- Posts Section -->
-    <div id="posts-container">
-        <h2>All Posts</h2>
-        <div id="postList"></div>
-    </div>
-
-    <script src="posts.js"></script>
+    <script src="Post.js"></script>
     <script src="navbar.js"></script>
 </body>
 </html>

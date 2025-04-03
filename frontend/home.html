@@ -8,16 +8,27 @@
     <link rel="stylesheet" href="home.css">
 </head>
 <body>
-    <h1>Home Page</h1>
-    <div id="postList"></div>
-    <nav>
-        <ul>
-            <li><a href="login.html">Login</a></li>
-            <li><a href="register.html">Register</a></li>
-            <li><a href="profile.html">Profile</a></li>
-        </ul>
-    </nav>
+    <!-- Header and Navigation Bar -->
+    <header>
+        
+    </header>
+
+    <!-- Main Content Section -->
+    <main>
+        <h1>Welcome to Home Page</h1>
+
+        <!-- Post Form (similar to Facebook's "What's on your mind?") -->
+        <section class="post-form">
+            <textarea id="postContent" placeholder="What's on your mind?" required></textarea>
+            <button id="postBtn">Post</button>
+        </section>
+
+        <!-- Post List -->
+        <div id="postList"></div>
+    </main>
+
+    <!-- Scripts -->
     <script src="navbar.js"></script>
-    <script src="posts.js"></script>
+    <script src="home.js"></script>
 </body>
 </html>
