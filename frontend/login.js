@@ -28,7 +28,7 @@ document.getElementById('loginForm').addEventListener('submit', async function (
             localStorage.setItem('token', data.token);
 
             // Redirect to home page after successful login
-            window.location.href = 'home.html';
+            window.location.href = 'post.html';
         } else {
             alert(`❌ Login failed: ${data?.msg || 'Unknown error'}`);
         }
