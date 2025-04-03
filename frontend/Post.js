@@ -6,7 +6,9 @@ async function createPost(event) {
     const imageFile = document.getElementById('image').files[0];
 
     const formData = new FormData();
+    formData.append('text', content);
     formData.append('content', content);
+
 
     if (imageFile) {
         formData.append('image', imageFile);
@@ -46,9 +48,11 @@ async function fetchPosts() {
     const posts = await res.json();
     const postList = document.getElementById('postList');
     postList.innerHTML = '';  // Clear any previous posts before appending new ones
+    
     posts.forEach(post => {
         const postItem = document.createElement('div');
         postItem.classList.add('post');
+
         postItem.innerHTML = `
             <h3>${post.user.name}</h3>
             <p>${post.content}</p>

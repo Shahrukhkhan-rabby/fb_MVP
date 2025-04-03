@@ -16,6 +16,7 @@ exports.createPost = async (req, res) => {
     const newPost = new Post({
       user: req.user.id,  // Assuming user ID is stored in req.user
       text: req.body.text,  // Text content of the post
+      content: req.body.content,
       image: imageUrl,  // Image URL if uploaded
     });
 
